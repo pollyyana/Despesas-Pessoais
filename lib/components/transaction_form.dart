@@ -18,7 +18,7 @@ class TransactionForm extends StatelessWidget {
             TextField(
               controller: titleController,
               // ignore: prefer_const_constructors
-              decoration: InputDecoration(labelText: 'Titulo'),
+              decoration: InputDecoration(labelText: 'Titul'),
             ),
             TextField(
               controller: valueController,

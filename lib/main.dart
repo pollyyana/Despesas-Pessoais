@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors
+import 'package:expenses/components/transaction_form.dart';
 import 'package:expenses/components/transaction_list.dart';
 import 'package:flutter/material.dart';
 import 'models/transaction.dart';
@@ -17,9 +18,6 @@ class ExpensesApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   // const MyHomePage({Key? key}) : super(key: key);
   // ignore: unused_field
-  final titleController = TextEditingController();
-  final valueController = TextEditingController();
-
   final _transactions = [
     Transaction(
       id: 't1',
@@ -54,39 +52,7 @@ class MyHomePage extends StatelessWidget {
             ),
           ),
           TransactionList(_transactions),
-          Card(
-            elevation: 5,
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                children: <Widget>[
-                  TextField(
-                    controller: titleController,
-                    decoration: InputDecoration(labelText: 'Titulo'),
-                  ),
-                  TextField(
-                    controller: valueController,
-                    decoration: InputDecoration(labelText: 'Valor (R\$)'),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                        style: TextButton.styleFrom(primary: Colors.purple),
-                        child: Text('Nova Transação'),
-                        onPressed: () {
-                          // ignore: avoid_print
-                          print(titleController.text);
-                          // ignore: avoid_print
-                          print(valueController.text);
-                        },
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          )
+          TransactionForm(),
         ],
       ),
     );
