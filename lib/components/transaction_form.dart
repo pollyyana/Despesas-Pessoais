@@ -18,7 +18,7 @@ class TransactionForm extends StatelessWidget {
             TextField(
               controller: titleController,
               // ignore: prefer_const_constructors
-              decoration: InputDecoration(labelText: 'Titul'),
+              decoration: InputDecoration(labelText: 'Titulo'),
             ),
             TextField(
               controller: valueController,
@@ -29,16 +29,15 @@ class TransactionForm extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 TextButton(
-                  style: TextButton.styleFrom(primary: Colors.purple),
-                  // ignore: prefer_const_constructors
-                  child: Text('Nova Transação'),
-                  onPressed: () {
-                    // ignore: avoid_print
-                    print(titleController.text);
-                    // ignore: avoid_print
-                    print(valueController.text);
-                  },
-                ),
+                    style: TextButton.styleFrom(primary: Colors.purple),
+                    // ignore: prefer_const_constructors
+                    child: Text('Nova Transação'),
+                    onPressed: () {
+                      // ignore: avoid_print
+                      print(titleController.text);
+                      // ignore: avoid_print
+                      print(valueController.text);
+                    }),
               ],
             ),
           ],
