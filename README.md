@@ -5,7 +5,7 @@
 
 Desenvolver um aplicativo de Despesas Pessoais , onde o usuário poderá inserir seus gastos diários e acompanhar o percentual de tudo que é gasto na semana.
 
-Para complementar ao projeto desenvolvido na COD3R, 
+Para complementar ao projeto desenvolvido na COD3R,(criando) 
 <!-- adicionei elementos para evitar Overflow, e deixei a Profile Page(botão de sair) semelhante ao input de dados. -->
 
 ### Pré-requisitos
