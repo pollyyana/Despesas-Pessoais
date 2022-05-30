@@ -7,6 +7,13 @@ class TransactionForm extends StatelessWidget {
   final titleController = TextEditingController();
   final valueController = TextEditingController();
 
+  final void Function(String, double)
+      onSubmit; // submeter o formulario passando por title e value
+
+  // ignore: use_key_in_widget_constructors
+  TransactionForm(
+      this.onSubmit); //construtor transaction Form/ on submit e o parametro
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -34,9 +41,11 @@ class TransactionForm extends StatelessWidget {
                     child: Text('Nova Transação'),
                     onPressed: () {
                       // ignore: avoid_print
-                      print(titleController.text);
+                      final stitle = titleController.text;
                       // ignore: avoid_print
-                      print(valueController.text);
+                      final svalue =
+                          double.tryParse(valueController.text) ?? 0.0;
+                      onSubmit(stitle, svalue);
                     }),
               ],
             ),
