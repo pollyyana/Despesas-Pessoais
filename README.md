@@ -23,7 +23,7 @@ Seguem telas:
 ```bash
 
 # Clone este repositório
-$ git clone https://github.com/ambitencourt/Flutter-Race
+$ git clone https://github.com/pollyyana/Despesas-Pessoais.git
 
 # Você pode mandar o Vscode criar um Android emulator ou IOS emulator.
 
