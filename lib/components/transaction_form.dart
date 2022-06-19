@@ -14,6 +14,17 @@ class TransactionForm extends StatelessWidget {
   TransactionForm(
       this.onSubmit); //construtor transaction Form/ on submit e o parametro
 
+  _submitForm() {
+    final stitle = titleController.text;
+    // ignore: avoid_print
+    final svalue = double.tryParse(valueController.text) ?? 0.0;
+    //
+    if (stitle.isEmpty || svalue <= 0) {
+      return;
+    }
+    onSubmit(stitle, svalue);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -24,11 +35,15 @@ class TransactionForm extends StatelessWidget {
           children: <Widget>[
             TextField(
               controller: titleController,
+              onSubmitted: (_) => _submitForm(),
               // ignore: prefer_const_constructors
               decoration: InputDecoration(labelText: 'Titulo'),
             ),
             TextField(
               controller: valueController,
+              keyboardType:
+                  const TextInputType.numberWithOptions(decimal: true),
+              onSubmitted: (_) => _submitForm(),
               // ignore: prefer_const_constructors
               decoration: InputDecoration(labelText: 'Valor (R\$)'),
             ),
@@ -36,17 +51,11 @@ class TransactionForm extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 TextButton(
-                    style: TextButton.styleFrom(primary: Colors.purple),
-                    // ignore: prefer_const_constructors
-                    child: Text('Nova Transação'),
-                    onPressed: () {
-                      // ignore: avoid_print
-                      final stitle = titleController.text;
-                      // ignore: avoid_print
-                      final svalue =
-                          double.tryParse(valueController.text) ?? 0.0;
-                      onSubmit(stitle, svalue);
-                    }),
+                  style: TextButton.styleFrom(primary: Colors.purple),
+                  // ignore: prefer_const_constructors
+                  child: Text('Nova Transação'),
+                  onPressed: _submitForm,
+                )
               ],
             ),
           ],
